@@ -577,6 +577,5 @@ a.ui-button:active,
 	filter: Alpha(Opacity=30); /* support: IE8 */
 }
 .ui-widget-shadow {
-	-webkit-box-shadow: -8px -8px 8px #aaaaaa;
 	box-shadow: -8px -8px 8px #aaaaaa;
 }

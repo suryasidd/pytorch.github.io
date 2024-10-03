@@ -21,6 +21,7 @@ var opts = {
   pm: 'pip',
   language: 'python',
   ptbuild: 'stable',
+  'torch-compile': null
 };
 
 var supportedCloudPlatforms = [
@@ -34,6 +35,7 @@ var package = $(".package > .option");
 var language = $(".language > .option");
 var cuda = $(".cuda > .option");
 var ptbuild = $(".ptbuild > .option");
+var torchCompile = $(".torch-compile > .option")
 
 os.on("click", function() {
   selectedOption(os, this, "os");
@@ -49,6 +51,9 @@ cuda.on("click", function() {
 });
 ptbuild.on("click", function() {
   selectedOption(ptbuild, this, "ptbuild")
+});
+torchCompile.on("click", function() {
+    selectedOption(torchCompile, this, "torch-compile")
 });
 
 // Pre-select user's operating system
@@ -168,9 +173,101 @@ function changeAccNoneName(osname) {
   }
 }
 
+function getIDFromBackend(backend) {
+    const idTobackendMap = {
+      inductor: 'inductor',
+      cgraphs : 'cudagraphs',
+      onnxrt: 'onnxrt',
+      openvino: 'openvino',
+      tensorrt: 'tensorrt',
+      tvm: 'tvm',
+    };
+    return idTobackendMap[backend]
+}
+
+function getInstallCommand(optionID) {
+    backend = getIDFromBackend(optionID);
+    finalCmd = "";
+    pipCmdOV = "pip3 install openvino";
+    condaCmdOV = "conda install openvino";
+    pipCmdOnnx = "pip3 install onnxruntime"
+    condaCmdOnnx = "conda install onnxruntime";
+    if (backend == "openvino") {
+        if (opts.pm == "pip") {
+            finalCmd = pipCmdOV;
+        }
+        else if (opts.pm == "conda") {
+            finalCmd = condaCmdOV;
+        }
+    }
+    if(backend == "onnxrt") {
+        if (opts.pm == "pip") {
+            finalCmd = pipCmdOnnx;
+        }
+        else if (opts.pm == "conda") {
+            finalCmd = condaCmdOnnx;
+        }
+    }
+    return finalCmd;
+}
+
+function getTorchCompileUsage(optionId) {
+    backend = getIDFromBackend(optionId);
+    importCmdOV = "<br>" + "import openvino.torch" + "<br>";
+    finalCmd = "";
+    tcUsage = "# Torch Compile usage: ";
+    backendCmd = `torch.compile(model, backend="${backend}")`;
+    finalUsageCmd = tcUsage;
+    importCmdOnnx = "<br>" + "import onnxruntime" + "<br>";
+    if (backend == "openvino") {
+        if (opts.pm == "libtorch") {
+            return "# Torch compile openvino not supported with Libtorch";
+        }
+        if (opts.pm == "source") {
+            finalCmd += "# Follow instructions at this URL to build openvino from source: https://github.com/openvinotoolkit/openvino/blob/master/docs/dev/build.md" + "<br>" ;
+            tcUsage += importCmdOV;
+        }
+        else if (opts.pm == "conda") {
+            tcUsage += importCmdOV;
+        }
+        if (opts.os == "windows" && !tcUsage.includes(importCmdOV)) {
+            tcUsage += importCmdOV;
+        }
+    }
+    if (backend == "onnxrt") {
+        tcUsage += importCmdOnnx;
+        if (opts.pm == "libtorch") {
+            return "# Torch compile onnxruntime not supported with Libtorch";
+        }
+        if (opts.pm == "source") {
+            finalCmd += "# Follow instructions at this URL to build onnxruntime from source: https://onnxruntime.ai/docs/build" + "<br>" ;
+        }
+    }
+    return finalCmd + tcUsage + backendCmd;
+}
+// Add Torch Compile usage instructions as a command note
+function addTorchCompileCommandNote(selectedOptionId) {
+    console.log(selectedOptionId);
+
+    if (!selectedOptionId) {
+        return;
+    }
+
+    $("#command").append(
+        `<pre> ${getInstallCommand(selectedOptionId)} </pre>`
+    );
+    $("#command").append(
+        `<pre> ${getTorchCompileUsage(selectedOptionId)} </pre>`
+    );
+}
+
+
 function selectedOption(option, selection, category) {
+  console.log("Surya Option:", option)
+  console.log("Surya prevSel:", opts[category])
   $(option).removeClass("selected");
   $(selection).addClass("selected");
+  const previousSelection = opts[category];
   opts[category] = selection.id;
   if (category === "pm") {
     var elements = document.getElementsByClassName("language")[0].children;
@@ -208,6 +305,11 @@ function selectedOption(option, selection, category) {
     changeVersion(opts.ptbuild);
     //make sure unsupported platforms are disabled
     disableUnsupportedPlatforms(opts.os);
+  } else if (category === "torch-compile") {
+    if (selection.id === previousSelection) {
+      $(selection).removeClass("selected");
+      opts[category] = null;
+    }
   }
   commandMessage(buildMatcher());
   if (category === "os") {
@@ -215,6 +317,7 @@ function selectedOption(option, selection, category) {
     display(opts.os, 'installation', 'os');
   }
   changeAccNoneName(opts.os);
+  addTorchCompileCommandNote(opts['torch-compile'])
 }
 
 function display(selection, id, category) {
