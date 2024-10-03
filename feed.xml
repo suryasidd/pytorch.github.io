@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://pytorch.org/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://pytorch.org/" rel="alternate" type="text/html" />
-  <updated>2024-10-02T17:49:09-07:00</updated>
-  <id>https://pytorch.org/feed.xml</id>
+  <link href="https://pytorch.org/pytorch.github.io/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://pytorch.org/pytorch.github.io/" rel="alternate" type="text/html" />
+  <updated>2024-10-02T18:02:22-07:00</updated>
+  <id>https://pytorch.org/pytorch.github.io/feed.xml</id>
 
   
   
@@ -32,11 +32,11 @@
   
     <entry>
       <title type="html">PyTorch Shanghai Meetup Notes</title>
-      <link href="https://pytorch.org/blog/pytorch-shanghai-notes/" rel="alternate" type="text/html" title="PyTorch Shanghai Meetup Notes" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/pytorch-shanghai-notes/" rel="alternate" type="text/html" title="PyTorch Shanghai Meetup Notes" />
       <published>2024-09-08T00:00:00-07:00</published>
       <updated>2024-09-08T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/pytorch-shanghai-notes</id>
-      <content type="html" xml:base="https://pytorch.org/blog/pytorch-shanghai-notes/">&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/pytorch-shanghai-notes</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/pytorch-shanghai-notes/">&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/pytorch-shanghai-notes/fg1.jpg&quot; alt=&quot;group photo&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;
 
@@ -102,11 +102,11 @@
   
     <entry>
       <title type="html">CUDA-Free Inference for LLMs</title>
-      <link href="https://pytorch.org/blog/cuda-free-inference-for-llms/" rel="alternate" type="text/html" title="CUDA-Free Inference for LLMs" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/cuda-free-inference-for-llms/" rel="alternate" type="text/html" title="CUDA-Free Inference for LLMs" />
       <published>2024-09-04T00:00:00-07:00</published>
       <updated>2024-09-04T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/cuda-free-inference-for-llms</id>
-      <content type="html" xml:base="https://pytorch.org/blog/cuda-free-inference-for-llms/">&lt;p&gt;In this blog, we discuss the methods we used to achieve FP16 inference with popular LLM models such as &lt;a href=&quot;https://huggingface.co/meta-llama/Meta-Llama-3-8B&quot;&gt;Meta’s Llama3-8B&lt;/a&gt; and &lt;a href=&quot;https://huggingface.co/ibm-granite/granite-8b-code-base&quot;&gt;IBM’s Granite-8B Code&lt;/a&gt;, where &lt;strong&gt;100%&lt;/strong&gt; of the computation is performed using &lt;a href=&quot;https://github.com/triton-lang/triton&quot;&gt;OpenAI’s Triton Language&lt;/a&gt;. &lt;br /&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/cuda-free-inference-for-llms</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/cuda-free-inference-for-llms/">&lt;p&gt;In this blog, we discuss the methods we used to achieve FP16 inference with popular LLM models such as &lt;a href=&quot;https://huggingface.co/meta-llama/Meta-Llama-3-8B&quot;&gt;Meta’s Llama3-8B&lt;/a&gt; and &lt;a href=&quot;https://huggingface.co/ibm-granite/granite-8b-code-base&quot;&gt;IBM’s Granite-8B Code&lt;/a&gt;, where &lt;strong&gt;100%&lt;/strong&gt; of the computation is performed using &lt;a href=&quot;https://github.com/triton-lang/triton&quot;&gt;OpenAI’s Triton Language&lt;/a&gt;. &lt;br /&gt;
 For single token generation times using our Triton kernel based models, we were able to approach &lt;strong&gt;0.76-0.78x&lt;/strong&gt; performance relative to the CUDA kernel dominant workflows for both Llama and Granite on Nvidia H100 GPUs, and &lt;strong&gt;0.62-0.82x&lt;/strong&gt; on Nvidia A100 GPUs.&lt;/p&gt;
 
 &lt;p&gt;Why explore using 100% Triton?  Triton provides a path for enabling LLMs to run on different types of GPUs - NVIDIA, AMD, and in the future Intel and other GPU based accelerators. It also provides a higher layer of abstraction in Python for programming GPUs and has allowed us to write performant kernels faster than authoring them using vendor specific APIs. In the rest of this blog, we will share how we achieve CUDA-free compute, micro-benchmark individual kernels for comparison, and discuss how we can further improve future Triton kernels to close the gaps.&lt;/p&gt;
@@ -464,11 +464,11 @@ We also note that our prior work has shown promising results for FP8 Triton GEMM
   
     <entry>
       <title type="html">Accelerate Your AI: PyTorch 2.4 Now Supports Intel GPUs for Faster Workloads</title>
-      <link href="https://pytorch.org/blog/intel-gpus-pytorch-2-4/" rel="alternate" type="text/html" title="Accelerate Your AI: PyTorch 2.4 Now Supports Intel GPUs for Faster Workloads" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/intel-gpus-pytorch-2-4/" rel="alternate" type="text/html" title="Accelerate Your AI: PyTorch 2.4 Now Supports Intel GPUs for Faster Workloads" />
       <published>2024-08-29T00:00:00-07:00</published>
       <updated>2024-08-29T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/intel-gpus-pytorch-2-4</id>
-      <content type="html" xml:base="https://pytorch.org/blog/intel-gpus-pytorch-2-4/">&lt;p&gt;We have exciting news! PyTorch 2.4 now supports Intel® Data Center GPU Max Series and the SYCL software stack, making it easier to speed up your AI workflows for both training and inference. This update allows for you to have a consistent programming experience with minimal coding effort and extends PyTorch’s device and runtime capabilities, including device, stream, event, generator, allocator, and guard, to seamlessly support streaming devices. This enhancement simplifies deploying PyTorch on ubiquitous hardware, making it easier for you to integrate different hardware back ends.&lt;/p&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/intel-gpus-pytorch-2-4</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/intel-gpus-pytorch-2-4/">&lt;p&gt;We have exciting news! PyTorch 2.4 now supports Intel® Data Center GPU Max Series and the SYCL software stack, making it easier to speed up your AI workflows for both training and inference. This update allows for you to have a consistent programming experience with minimal coding effort and extends PyTorch’s device and runtime capabilities, including device, stream, event, generator, allocator, and guard, to seamlessly support streaming devices. This enhancement simplifies deploying PyTorch on ubiquitous hardware, making it easier for you to integrate different hardware back ends.&lt;/p&gt;
 
 &lt;p&gt;Intel GPU support upstreamed into PyTorch provides support for both eager and graph modes, fully running Dynamo Hugging Face benchmarks. Eager mode now includes common Aten operators implemented with SYCL. The most performance-critical graphs and operators are highly optimized by using oneAPI Deep Neural Network Library (oneDNN) and oneAPI Math Kernel Library (oneMKL). Graph mode (torch.compile) now has an enabled Intel GPU back end to implement the optimization for Intel GPUs and to integrate Triton. Furthermore, data types such as FP32, BF16, FP16, and automatic mixed precision (AMP) are supported. The PyTorch Profiler, based on Kineto and oneMKL, is being developed for the upcoming PyTorch 2.5 release.&lt;/p&gt;
 
@@ -570,11 +570,11 @@ tensor = torch.tensor([1.0, 2.0]).to(&quot;xpu&quot;)
   
     <entry>
       <title type="html">Enabling Fast Gradient Clipping and Ghost Clipping in Opacus</title>
-      <link href="https://pytorch.org/blog/clipping-in-opacus/" rel="alternate" type="text/html" title="Enabling Fast Gradient Clipping and Ghost Clipping in Opacus" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/clipping-in-opacus/" rel="alternate" type="text/html" title="Enabling Fast Gradient Clipping and Ghost Clipping in Opacus" />
       <published>2024-08-20T00:00:00-07:00</published>
       <updated>2024-08-20T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/clipping-in-opacus</id>
-      <content type="html" xml:base="https://pytorch.org/blog/clipping-in-opacus/">&lt;h2 id=&quot;introduction-and-context&quot;&gt;Introduction and Context&lt;/h2&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/clipping-in-opacus</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/clipping-in-opacus/">&lt;h2 id=&quot;introduction-and-context&quot;&gt;Introduction and Context&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1607.00133&quot;&gt;Differentially Private Stochastic Gradient Descent (DP-SGD)&lt;/a&gt; is the canonical method for training machine learning models with differential privacy. It involves the following two modifications to its non-private counterpart, Stochastic Gradient Descent.&lt;/p&gt;
 
@@ -968,11 +968,11 @@ Extending the approach of Fast Gradient Clipping, Ghost Clipping uses the &lt;a 
   
     <entry>
       <title type="html">FlexAttention: The Flexibility of PyTorch with the Performance of FlashAttention</title>
-      <link href="https://pytorch.org/blog/flexattention/" rel="alternate" type="text/html" title="FlexAttention: The Flexibility of PyTorch with the Performance of FlashAttention" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/flexattention/" rel="alternate" type="text/html" title="FlexAttention: The Flexibility of PyTorch with the Performance of FlashAttention" />
       <published>2024-08-07T00:00:00-07:00</published>
       <updated>2024-08-07T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/flexattention</id>
-      <content type="html" xml:base="https://pytorch.org/blog/flexattention/">&lt;p&gt;&lt;img src=&quot;/assets/images/flexattention/fg1.jpg&quot; alt=&quot;a cartoon chart flexing his muscles&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/flexattention</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/flexattention/">&lt;p&gt;&lt;img src=&quot;/assets/images/flexattention/fg1.jpg&quot; alt=&quot;a cartoon chart flexing his muscles&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In theory, Attention is All You Need. In practice, however, we also need optimized attention implementations like FlashAttention.&lt;/p&gt;
 
@@ -1458,11 +1458,11 @@ b. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;indices&lt
   
     <entry>
       <title type="html">Quantization-Aware Training for Large Language Models with PyTorch</title>
-      <link href="https://pytorch.org/blog/quantization-aware-training/" rel="alternate" type="text/html" title="Quantization-Aware Training for Large Language Models with PyTorch" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/quantization-aware-training/" rel="alternate" type="text/html" title="Quantization-Aware Training for Large Language Models with PyTorch" />
       <published>2024-07-30T00:00:00-07:00</published>
       <updated>2024-07-30T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/quantization-aware-training</id>
-      <content type="html" xml:base="https://pytorch.org/blog/quantization-aware-training/">&lt;p&gt;In this blog, we present an end-to-end Quantization-Aware Training (QAT) flow for large language models in PyTorch. We demonstrate how QAT in PyTorch can &lt;strong&gt;recover up to 96% of the accuracy degradation&lt;/strong&gt; &lt;strong&gt;on hellaswag and&lt;/strong&gt; &lt;strong&gt;68% of the perplexity degradation on wikitext&lt;/strong&gt; &lt;strong&gt;for Llama3 compared to post-training quantization (PTQ).&lt;/strong&gt; We present the QAT APIs in &lt;a href=&quot;https://github.com/pytorch/ao/&quot;&gt;torchao&lt;/a&gt; and showcase how users can leverage them for fine-tuning in &lt;a href=&quot;https://github.com/pytorch/torchtune/&quot;&gt;torchtune&lt;/a&gt;.&lt;/p&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/quantization-aware-training</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/quantization-aware-training/">&lt;p&gt;In this blog, we present an end-to-end Quantization-Aware Training (QAT) flow for large language models in PyTorch. We demonstrate how QAT in PyTorch can &lt;strong&gt;recover up to 96% of the accuracy degradation&lt;/strong&gt; &lt;strong&gt;on hellaswag and&lt;/strong&gt; &lt;strong&gt;68% of the perplexity degradation on wikitext&lt;/strong&gt; &lt;strong&gt;for Llama3 compared to post-training quantization (PTQ).&lt;/strong&gt; We present the QAT APIs in &lt;a href=&quot;https://github.com/pytorch/ao/&quot;&gt;torchao&lt;/a&gt; and showcase how users can leverage them for fine-tuning in &lt;a href=&quot;https://github.com/pytorch/torchtune/&quot;&gt;torchtune&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/quantization-aware-training/fg1.jpg&quot; alt=&quot;Llama3-8B fine-tuned on the C4 dataset (en subset) with and without QAT using int8 per token dynamic activations + int4 grouped per channel weights, evaluated on hellaswag and wikitext on a A100 GPU. Note the log scale for wikitext (lower is better).&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;
 
@@ -1746,11 +1746,11 @@ b. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;indices&lt
   
     <entry>
       <title type="html">Introducing torchchat: Accelerating Local LLM Inference on Laptop, Desktop and Mobile</title>
-      <link href="https://pytorch.org/blog/torchchat-local-llm-inference/" rel="alternate" type="text/html" title="Introducing torchchat: Accelerating Local LLM Inference on Laptop, Desktop and Mobile" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/torchchat-local-llm-inference/" rel="alternate" type="text/html" title="Introducing torchchat: Accelerating Local LLM Inference on Laptop, Desktop and Mobile" />
       <published>2024-07-30T00:00:00-07:00</published>
       <updated>2024-07-30T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/torchchat-local-llm-inference</id>
-      <content type="html" xml:base="https://pytorch.org/blog/torchchat-local-llm-inference/">&lt;p&gt;Today, we’re releasing &lt;a href=&quot;https://github.com/pytorch/torchchat&quot;&gt;torchchat&lt;/a&gt;, a library showcasing how to seamlessly and performantly run Llama 3, 3.1, and other large language models across laptop, desktop, and mobile.&lt;/p&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/torchchat-local-llm-inference</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/torchchat-local-llm-inference/">&lt;p&gt;Today, we’re releasing &lt;a href=&quot;https://github.com/pytorch/torchchat&quot;&gt;torchchat&lt;/a&gt;, a library showcasing how to seamlessly and performantly run Llama 3, 3.1, and other large language models across laptop, desktop, and mobile.&lt;/p&gt;
 
 &lt;p&gt;In our previous blog posts, we &lt;a href=&quot;https://pytorch.org/blog/accelerating-generative-ai-2/&quot;&gt;showed&lt;/a&gt; how to use native PyTorch 2 to run LLMs with great performance using CUDA. Torchchat expands on this with more target environments, models and execution modes. Additionally it provides important functions such as export, quantization and eval in a way that’s easy to understand providing an E2E story for those who want to build a local inference solution.&lt;/p&gt;
 
@@ -1930,11 +1930,11 @@ Torchchat achieves &amp;gt; 8T/s on the Samsung Galaxy S23 and iPhone using 4-bi
   
     <entry>
       <title type="html">PyTorch 2.4 Release Blog</title>
-      <link href="https://pytorch.org/blog/pytorch2-4/" rel="alternate" type="text/html" title="PyTorch 2.4 Release Blog" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/pytorch2-4/" rel="alternate" type="text/html" title="PyTorch 2.4 Release Blog" />
       <published>2024-07-24T00:00:00-07:00</published>
       <updated>2024-07-24T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/pytorch2-4</id>
-      <content type="html" xml:base="https://pytorch.org/blog/pytorch2-4/">&lt;p&gt;We are excited to announce the release of PyTorch® 2.4 (&lt;a href=&quot;https://github.com/pytorch/pytorch/releases/tag/v2.4.0&quot;&gt;release note&lt;/a&gt;)! PyTorch 2.4 adds support for the latest version of Python (3.12) for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.compile&lt;/code&gt;. AOTInductor freezing gives developers running AOTInductor more performance-based optimizations by allowing the serialization of MKLDNN weights. As well, a new default TCPStore server backend utilizing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libuv&lt;/code&gt; has been introduced which should significantly reduce initialization times for users running large-scale jobs. Finally, a new Python Custom Operator API makes it easier than before to integrate custom kernels into PyTorch, especially for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.compile&lt;/code&gt;.&lt;/p&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/pytorch2-4</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/pytorch2-4/">&lt;p&gt;We are excited to announce the release of PyTorch® 2.4 (&lt;a href=&quot;https://github.com/pytorch/pytorch/releases/tag/v2.4.0&quot;&gt;release note&lt;/a&gt;)! PyTorch 2.4 adds support for the latest version of Python (3.12) for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.compile&lt;/code&gt;. AOTInductor freezing gives developers running AOTInductor more performance-based optimizations by allowing the serialization of MKLDNN weights. As well, a new default TCPStore server backend utilizing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libuv&lt;/code&gt; has been introduced which should significantly reduce initialization times for users running large-scale jobs. Finally, a new Python Custom Operator API makes it easier than before to integrate custom kernels into PyTorch, especially for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.compile&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;This release is composed of 3661 commits and 475 contributors since PyTorch 2.3. We want to sincerely thank our dedicated community for your contributions. As always, we encourage you to try these out and report any issues as we improve 2.4. More information about how to get started with the PyTorch 2-series can be found at our &lt;a href=&quot;https://pytorch.org/get-started/pytorch-2.0/&quot;&gt;Getting Started&lt;/a&gt; page.&lt;/p&gt;
 
@@ -2108,11 +2108,11 @@ python run_experiments.py 16 vit_b &amp;lt;pytorch_github&amp;gt; &amp;lt;segmen
   
     <entry>
       <title type="html">Deep Dive on the Hopper TMA Unit for FP8 GEMMs</title>
-      <link href="https://pytorch.org/blog/hopper-tma-unit/" rel="alternate" type="text/html" title="Deep Dive on the Hopper TMA Unit for FP8 GEMMs" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/hopper-tma-unit/" rel="alternate" type="text/html" title="Deep Dive on the Hopper TMA Unit for FP8 GEMMs" />
       <published>2024-07-22T00:00:00-07:00</published>
       <updated>2024-07-22T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/hopper-tma-unit</id>
-      <content type="html" xml:base="https://pytorch.org/blog/hopper-tma-unit/">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/hopper-tma-unit</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/hopper-tma-unit/">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 
 &lt;p&gt;The Hopper (H100) GPU architecture, billed as the “first truly asynchronous GPU”, includes a new, fully asynchronous hardware copy engine for bulk data movement between global and shared memory called Tensor Memory Accelerator (TMA).  While CUTLASS has &lt;a href=&quot;https://github.com/NVIDIA/cutlass/blob/56b46e2d13875b46b8f6a03f9f5ac91e2bfdc01a/include/cute/arch/copy_sm90_tma.hpp&quot;&gt;built-in&lt;/a&gt; support for TMA via its asynchronous pipeline paradigm, Triton exposes TMA support via an &lt;a href=&quot;https://github.com/triton-lang/triton/blob/538556a66ee49630e1cb0b239f93e63b968b2478/python/triton/tools/experimental_descriptor.py#L25&quot;&gt;experimental API&lt;/a&gt;.&lt;/p&gt;
 
@@ -2544,11 +2544,11 @@ cp.async.bulk.tensor.2d.global.shared::cta.bulk_group [%rd69, {%r284, %r283}], [
   
     <entry>
       <title type="html">FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision</title>
-      <link href="https://pytorch.org/blog/flashattention-3/" rel="alternate" type="text/html" title="FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision" />
+      <link href="https://pytorch.org/pytorch.github.io/blog/flashattention-3/" rel="alternate" type="text/html" title="FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision" />
       <published>2024-07-11T00:00:00-07:00</published>
       <updated>2024-07-11T00:00:00-07:00</updated>
-      <id>https://pytorch.org/blog/flashattention-3</id>
-      <content type="html" xml:base="https://pytorch.org/blog/flashattention-3/">&lt;p&gt;Attention, as a core layer of the ubiquitous Transformer architecture, is a bottleneck for large language models and long-context applications. FlashAttention (and FlashAttention-2) pioneered an approach to speed up attention on GPUs by minimizing memory reads/writes, and is now used by most &lt;a href=&quot;https://pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html&quot;&gt;libraries&lt;/a&gt; to accelerate Transformer training and inference. This has contributed to a massive increase in LLM context length in the last two years, from 2-4K (GPT-3, OPT) to 128K (GPT-4), or even 1M (&lt;a href=&quot;https://huggingface.co/gradientai/Llama-3-8B-Instruct-Gradient-1048k&quot;&gt;Llama 3&lt;/a&gt;). However, despite its success, FlashAttention has yet to take advantage of new capabilities in modern hardware, with FlashAttention-2 achieving only 35% utilization of theoretical max FLOPs on the H100 GPU. In this blogpost, we describe three main techniques to speed up attention on Hopper GPUs: exploiting asynchrony of the Tensor Cores and TMA to (1) overlap overall computation and data movement via warp-specialization and (2) interleave block-wise matmul and softmax operations, and (3) incoherent processing that leverages hardware support for FP8 low-precision.&lt;/p&gt;
+      <id>https://pytorch.org/pytorch.github.io/blog/flashattention-3</id>
+      <content type="html" xml:base="https://pytorch.org/pytorch.github.io/blog/flashattention-3/">&lt;p&gt;Attention, as a core layer of the ubiquitous Transformer architecture, is a bottleneck for large language models and long-context applications. FlashAttention (and FlashAttention-2) pioneered an approach to speed up attention on GPUs by minimizing memory reads/writes, and is now used by most &lt;a href=&quot;https://pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html&quot;&gt;libraries&lt;/a&gt; to accelerate Transformer training and inference. This has contributed to a massive increase in LLM context length in the last two years, from 2-4K (GPT-3, OPT) to 128K (GPT-4), or even 1M (&lt;a href=&quot;https://huggingface.co/gradientai/Llama-3-8B-Instruct-Gradient-1048k&quot;&gt;Llama 3&lt;/a&gt;). However, despite its success, FlashAttention has yet to take advantage of new capabilities in modern hardware, with FlashAttention-2 achieving only 35% utilization of theoretical max FLOPs on the H100 GPU. In this blogpost, we describe three main techniques to speed up attention on Hopper GPUs: exploiting asynchrony of the Tensor Cores and TMA to (1) overlap overall computation and data movement via warp-specialization and (2) interleave block-wise matmul and softmax operations, and (3) incoherent processing that leverages hardware support for FP8 low-precision.&lt;/p&gt;
 
 &lt;p&gt;We’re excited to release FlashAttention-3 that incorporates these techniques. It’s 1.5-2.0x faster than FlashAttention-2 with FP16, up to 740 TFLOPS, i.e., 75% utilization of H100 theoretical max FLOPS. With FP8, FlashAttention-3 reaches close to 1.2 PFLOPS, with 2.6x smaller error than baseline FP8 attention.&lt;/p&gt;
 
