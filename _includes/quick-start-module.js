@@ -182,72 +182,88 @@ function getIDFromBackend(backend) {
       tensorrt: 'tensorrt',
       tvm: 'tvm',
     };
-    return idTobackendMap[backend]
+    return idTobackendMap[backend];
+}
+
+function getPmCmd(backend) {
+    const pmCmd = {
+        onnxrt: 'onnxruntime',
+        tvm: 'apache-tvm',
+        openvino: 'openvino',
+        tensorrt: 'torch-tensorrt',
+    };
+    return pmCmd[backend];
+}
+
+function getImportCmd(backend) {
+    const importCmd = {
+        onnxrt: 'import onnxruntime',
+        tvm: 'import tvm',
+        openvino: 'import openvino.torch',
+        tensorrt: 'import torch_tensorrt'
+    }
+    return importCmd[backend];
 }
 
 function getInstallCommand(optionID) {
     backend = getIDFromBackend(optionID);
+    pmCmd = getPmCmd(optionID);
     finalCmd = "";
-    pipCmdOV = "pip3 install openvino";
-    condaCmdOV = "conda install openvino";
-    pipCmdOnnx = "pip3 install onnxruntime"
-    condaCmdOnnx = "conda install onnxruntime";
-    if (backend == "openvino") {
-        if (opts.pm == "pip") {
-            finalCmd = pipCmdOV;
-        }
-        else if (opts.pm == "conda") {
-            finalCmd = condaCmdOV;
-        }
-    }
-    if(backend == "onnxrt") {
-        if (opts.pm == "pip") {
-            finalCmd = pipCmdOnnx;
-        }
-        else if (opts.pm == "conda") {
-            finalCmd = condaCmdOnnx;
-        }
-    }
+   if (opts.pm == "pip") {
+        finalCmd = `pip3 install ${pmCmd}`;
+   }
+   else if (opts.pm == "conda") {
+        finalCmd = `conda install ${pmCmd}`;
+   }
     return finalCmd;
 }
 
 function getTorchCompileUsage(optionId) {
     backend = getIDFromBackend(optionId);
-    importCmdOV = "<br>" + "import openvino.torch" + "<br>";
+    importCmd = "<br>" + getImportCmd(optionId) + "<br>";
     finalCmd = "";
     tcUsage = "# Torch Compile usage: ";
     backendCmd = `torch.compile(model, backend="${backend}")`;
-    finalUsageCmd = tcUsage;
-    importCmdOnnx = "<br>" + "import onnxruntime" + "<br>";
+    libtorchCmd = `# Torch compile ${backend} not supported with Libtorch`;
+
+    if (opts.pm == "libtorch") {
+        return libtorchCmd;
+    }
     if (backend == "openvino") {
-        if (opts.pm == "libtorch") {
-            return "# Torch compile openvino not supported with Libtorch";
-        }
         if (opts.pm == "source") {
             finalCmd += "# Follow instructions at this URL to build openvino from source: https://github.com/openvinotoolkit/openvino/blob/master/docs/dev/build.md" + "<br>" ;
-            tcUsage += importCmdOV;
+            tcUsage += importCmd;
         }
         else if (opts.pm == "conda") {
-            tcUsage += importCmdOV;
+            tcUsage += importCmd;
         }
-        if (opts.os == "windows" && !tcUsage.includes(importCmdOV)) {
-            tcUsage += importCmdOV;
+        if (opts.os == "windows" && !tcUsage.includes(importCmd)) {
+            tcUsage += importCmd;
         }
     }
+    else{
+        tcUsage += importCmd;
+    }
     if (backend == "onnxrt") {
-        tcUsage += importCmdOnnx;
-        if (opts.pm == "libtorch") {
-            return "# Torch compile onnxruntime not supported with Libtorch";
-        }
         if (opts.pm == "source") {
             finalCmd += "# Follow instructions at this URL to build onnxruntime from source: https://onnxruntime.ai/docs/build" + "<br>" ;
         }
     }
-    return finalCmd + tcUsage + backendCmd;
+    if (backend == "tvm") {
+        if (opts.pm == "source") {
+            finalCmd += "# Follow instructions at this URL to build tvm from source: https://tvm.apache.org/docs/install/from_source.html" + "<br>" ;
+        }
+    }
+    if (backend == "tensorrt") {
+        if (opts.pm == "source") {
+            finalCmd += "# Follow instructions at this URL to build tensorrt from source: https://pytorch.org/TensorRT/getting_started/installation.html#compiling-from-source" + "<br>" ;
+        }
+    }
+    finalCmd += tcUsage + backendCmd;
+    return finalCmd
 }
-// Add Torch Compile usage instructions as a command note
+
 function addTorchCompileCommandNote(selectedOptionId) {
-    console.log(selectedOptionId);
 
     if (!selectedOptionId) {
         return;
@@ -256,13 +272,12 @@ function addTorchCompileCommandNote(selectedOptionId) {
     $("#command").append(
         `<pre> ${getInstallCommand(selectedOptionId)} </pre>`
     );
-    result = getTorchCompileUsage(selectedOptionId);
     $("#command").append(
-        `<pre> ${result} </pre>`
+        `<pre> ${getTorchCompileUsage(selectedOptionId)} </pre>`
     );
 }
+
 function selectedOption(option, selection, category) {
-   console.log("Surya Option:", option)
   $(option).removeClass("selected");
   $(selection).addClass("selected");
   opts[category] = selection.id;
